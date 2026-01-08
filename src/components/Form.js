@@ -9,23 +9,23 @@ export class Form extends Component {
     this.$rootElement.className = "donate-form";
     this.$rootElement.addEventListener("submit", this.handleSubmit.bind(this));
 
-    const label = document.createElement("label");
-    label.htmlFor = "enter_amount";
-    label.setAttribute("tupe", "number");
-    label.textContent = "Введите сумму в $";
+    const $label = document.createElement("label");
+    $label.htmlFor = "enter_amount";
+    $label.setAttribute("tupe", "number");
+    $label.textContent = "Введите сумму в $";
 
-    const input = document.createElement("input");
-    input.id = "enter_amount";
-    this.$input = input;
+    const $input = document.createElement("input");
+    $input.id = "enter_amount";
+    this.$input = $input;
     this.$input.addEventListener("input", this.handleInput.bind(this));
 
-    const button = document.createElement("button");
-    button.textContent = "Задонатить";
-    this.$button = button;
+    const $button = document.createElement("button");
+    $button.textContent = "Задонатить";
+    this.$button = $button;
 
-    this.$rootElement.appendChild(label);
-    this.$rootElement.appendChild(input);
-    this.$rootElement.appendChild(button);
+    this.$rootElement.appendChild($label);
+    this.$rootElement.appendChild($input);
+    this.$rootElement.appendChild($button);
   }
 
   handleInput(event) {
@@ -42,7 +42,7 @@ export class Form extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.isValid) {
-      console.log(this.state.amount);
+      this.props.onSubmit(Number(this.state.amount));
       this.state.amount = "";
       this.$input.value = "";
     }
