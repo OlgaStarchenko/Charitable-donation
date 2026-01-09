@@ -31,7 +31,6 @@ export class Form extends Component {
   handleInput(event) {
     this.state.amount = event.target.value;
 
-    console.log(this.isValid);
     if (this.isValid) {
       this.$button.disabled = false;
     } else {

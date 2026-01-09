@@ -5,13 +5,13 @@ import { ListItem } from "./ListItem";
 
 export class App extends Component {
   setup(props) {
-    this.$rootElement = document.createElement("div");
-    this.$rootElement.className = "app";
-
     this.state = {
       total: 0,
       donates: [],
     };
+
+    this.$rootElement = document.createElement("div");
+    this.$rootElement.className = "app";
 
     const $h1 = document.createElement("h1");
 
