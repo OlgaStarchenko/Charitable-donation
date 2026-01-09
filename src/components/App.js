@@ -36,5 +36,6 @@ export class App extends Component {
     this.state.donates.push(item);
     console.log(this.state.donates);
     this.donateList.addItem(item);
+    this.$total = this.state.total + this.state.amount;
   }
 }

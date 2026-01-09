@@ -4,20 +4,21 @@ export class ListItem extends Component {
   setup(props) {
     this.state = {
       id: Date.now(),
-      date: new Date(),
+      date: new Date().toLocaleString("en-US", { hour12: false }),
       amount: this.props.amount,
     };
 
     this.$rootElement = document.createElement("div");
     this.$rootElement.className = "donate-item";
 
-    const date = document.createElement("p");
+    const dateText = document.createElement("p");
     const bold = document.createElement("b");
-    bold.textContent = `$${this.state.amount}`;
-    date.textContent = `${this.state.date} - `;
-    console.log(date, bold);
 
-    this.$rootElement.appendChild(date);
+    bold.textContent = `$${this.state.amount}`;
+    dateText.textContent = `${this.state.date} - `;
+    console.log(dateText, bold);
+
+    this.$rootElement.appendChild(dateText);
     this.$rootElement.appendChild(bold);
   }
 }
